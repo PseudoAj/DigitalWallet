@@ -1,5 +1,11 @@
 # An Efficient Data Pipeline for Fraud Detection
 
+## Evaluated data structures
+1. Bloom Filters: False positive is bad
+1. Trees(AVL,RB): Maintaining N trees is troublesome, hashmaps have an average time complexity of O(1)
+1. Array: duh!
+
+
 ##Challenge Summary
 
 Imagine you're a data engineer at a "digital wallet" company called PayMo that allows users to easily request and make payments to other PayMo users. The team at PayMo has decided they want to implement features to prevent fraudulent payment requests from untrusted users.
