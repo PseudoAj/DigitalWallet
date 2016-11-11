@@ -56,6 +56,7 @@ class main():
     def bfsPths(self, graph, start, goal):
         queue = [(start, [start])]
         while queue:
+            print len(queue)
             (vertex, path) = queue.pop(0)
 
             curSet = set()
@@ -123,10 +124,10 @@ class main():
             strmFle.readline()
             # For each trnsctn in strmFle
             for trnsctn in strmFle:
-                # Variable for current output
-                curOt1 = ""
-                curOt2 = ""
-                curOt3 = ""
+                # Intialize as unverified by default
+                curOt1 = "unverified"
+                curOt2 = "unverified"
+                curOt3 = "unverified"
 
                 # Filter the data before running analysis
                 # Get the tokenized data
