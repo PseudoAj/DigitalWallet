@@ -31,7 +31,7 @@ Stream at time $t_0$ -----> Fraud Detection Algorithm ----> unverified,trusted
 
 
 ## Testing
-![../images/test.gif](../images/test.gif)
+![./images/test.gif](../images/test.gif)
 
 ## Results
 
