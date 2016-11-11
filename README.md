@@ -13,10 +13,18 @@ To design an efficient fraud detection feature for PayMo users; the following ar
 	1. Trees(AVL,RB): Maintaining N trees is costly with no real advantage.
 	1. Hashmaps: O(1) access for membership queries
 	1. Array: duh!
+
 From the above mentioned data structures; Hashmaps provide us with a good performance while performing membership queries and to represent a graph, a hash map array is used for each node in graph.
 
-## Implementation
+## Data pipeline
 
+> batch_payment        -----> Data Model
+  																|
+  																|
+  Stream at time $t_0$ -----> Fraud Detection Algorithm ----> unverified,trusted
+
+
+## Implementation
 
 ## Analysis
 1. BFS: O(|V|+|E|)
