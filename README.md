@@ -1,10 +1,26 @@
 # An Efficient Data Pipeline for Fraud Detection
 
+## Methodology
+To design an efficient fraud detection feature for PayMo users; the following are the two main branches of solution:
+1. Building model:
+1. Streaming Values:
+
+
 ## Evaluated data structures
 1. Bloom Filters: False positive is bad
 1. Trees(AVL,RB): Maintaining N trees is troublesome, hashmaps have an average time complexity of O(1)
 1. Array: duh!
 
+## Analysis
+1. BFS: O(|V|+|E|)
+
+## Implementation
+
+## Testing
+
+## Results
+
+## Conclusion
 
 ##Challenge Summary
 
