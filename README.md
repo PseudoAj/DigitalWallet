@@ -17,7 +17,7 @@ To design an efficient fraud detection feature for PayMo users; the following ar
 From the above mentioned data structures; Hashmaps provide us with a good performance while performing membership queries and to represent a graph, a hash map array is used for each node in graph.
 
 ## Data pipeline
-```
+```text
 batch_payment        -----> Data Model
 																|
 																|
