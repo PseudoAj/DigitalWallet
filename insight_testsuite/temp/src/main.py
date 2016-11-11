@@ -56,7 +56,7 @@ class main():
     def bfsPths(self, graph, start, goal):
         queue = [(start, [start])]
         while queue:
-            print len(queue)
+            # Get the vertex and add to path
             (vertex, path) = queue.pop(0)
 
             curSet = set()
@@ -138,7 +138,7 @@ class main():
                 curRcvr = int(tkns[2].strip())
 
                 if curSndr == curRcvr:
-                    print "True story"
+                    continue
 
                 # Optimization 1:
                 # If rcvr not in nodes:
@@ -176,23 +176,6 @@ class main():
                 self.writeFltrdData(self.f2Out,curOt2+'\n')
                 self.writeFltrdData(self.f3Out,curOt3+'\n')
 
-
-                # # Find the degree using a BFS search
-                # curDegree, isNghbrs = self.bfs(self.treeDict,curSndr,curRcvr)
-                # if isNghbrs:
-                #     print curDegree
-                # else:
-                #     print "Unverified"
-                # raw_input()
-
-                # # Find one degree neighbors
-                # curDegree, isNghbrs = self.isNghbrs(self.treeDict,0,curSndr,curRcvr)
-                # # Write the status message for the trnsctn
-                # if isNghbrs:
-                #     print str(curDegree)+": trusted"
-                # else:
-                #     print str(curDegree)+": unverified"
-
                 # Debug
                 # print self.treeDict
                 # print "Current transaction: "+str(trnsctn)+" Sender: "+str(curSndr)+" Reciever: "+str(curRcvr)
@@ -208,15 +191,15 @@ if __name__ == "__main__":
         f1Out = str(sys.argv[3])
         f2Out = str(sys.argv[4])
         f3Out = str(sys.argv[5])
-        print f1Out
     else:
         # Variable for the batch path
-        # btchPymnt = "../paymo_input/batch_payment.txt"
-        btchPymnt = "../paymo_input/test_batch.txt"
+        btchPymnt = "../paymo_input/batch_payment.txt"
+        # btchPymnt = "../paymo_input/test_batch.txt"
 
         # Variable for the stream path
         # strmPymnt = "../paymo_input/stream_payment.txt"
-        strmPymnt = "../paymo_input/test_stream.txt"
+        strmPymnt = "../paymo_input/stream_oneSec.txt"
+        # strmPymnt = "../paymo_input/test_stream.txt"
 
         # Output file path
         f1Out = "../paymo_output/output1.txt"
