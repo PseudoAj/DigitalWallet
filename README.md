@@ -47,7 +47,9 @@ Stream at time $t_0$ -----> Fraud Detection Algorithm ----> unverified,trusted
 ```
 
 Fairly, a simple pipeline that shall build the Data Model; which is a graph represented as hashmap. Once the data model is created, for each streaming value, the sender and receiver are identified and degree between them is determined to generate the warnings.
+
 ## Implementation
+
 ### Setup
 Effort has been made to write as many custom implementations as possible with little use of external libraries:
 
@@ -83,6 +85,7 @@ For each stream_payment:
 
 ### Optimizations
 Several optimizations have been made:
+
 1. A global nodes dictionary is maintained to detect unknown transactions with O(1)
 1. For the first degree neighborhood, a different scheme is used. The receiver is checked directly from the hashmap entry instead of checking entore graph. Guarantees O(edges in sender node) or bounded by O(max(Edges))
 
