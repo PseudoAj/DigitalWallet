@@ -52,7 +52,7 @@ Fairly, a simple pipeline that shall build the Data Model; which is a graph repr
 Effort has been made to write as many custom implementations as possible with little use of external libraries:
 
 1. Python 2.7
-1. Some luck
+1. Networkx 
 
 ### Algorithms
 1. Generate data model:
