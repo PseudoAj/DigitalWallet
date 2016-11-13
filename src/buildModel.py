@@ -10,6 +10,9 @@
 # version         : 1.0
 # ==============================================================================
 
+import networkx as nx
+
+# ==============================================================================
 # This is the class to build the model to detect the frauds
 class buildModel():
 
@@ -31,6 +34,9 @@ class buildModel():
 
         # Dict that holds the dict of nodes
         self.treeDict = {}
+
+        # NetworkX graph
+        self.nxGraph = nx.Graph()
 
         # ===== Debug =====
         # Debug Statement
@@ -90,6 +96,9 @@ class buildModel():
             # Add the value
             self.treeDict[rcvr][sndr] = sndr
 
+    def bldNxGrph(self,sndr,rcvr):
+        # Add the nodes to the graph
+        self.nxGraph.add_edge(sndr,rcvr)
 
     # Function to trigger the build operation
     def build(self):
@@ -111,6 +120,8 @@ class buildModel():
                 self.bldNdsHT(curSndr,curRcvr)
                 # Build tree of transactions
                 self.bldTrnsTree(curSndr,curRcvr)
+                # Build the networkx graph
+                self.bldNxGrph(curSndr,curRcvr)
 
                 # Debug
                 # print "Current transaction: "+str(trnsctn)+" Sender: "+str(curSndr)+" Reciever: "+str(curRcvr)
@@ -121,6 +132,7 @@ class buildModel():
         # print "Bad transactions: "+str(self.badTrns)
         # print len(self.nodesDict)
         # print len(self.treeDict)
+        # print self.nxGraph.number_of_nodes()
 
         # Return values: dict and trees
         return self.nodesDict,self.treeDict
@@ -128,7 +140,8 @@ class buildModel():
 # Main method to trigger the class
 if __name__=="__main__":
     # Initialize the model
-    thisModel = buildModel("../paymo_input/batch_payment.csv")
+    thisModel = buildModel("../paymo_input/batch_payment.txt")
+    # thisModel = buildModel("../paymo_input/test_batch.txt")
 
     # Call the build operation
     thisModel.build()
