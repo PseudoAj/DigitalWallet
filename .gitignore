@@ -3,4 +3,3 @@ paymo_input/*.txt
 paymo_output/*.csv
 paymo_output/*.txt
 src/*.pyc
-insight_testsuite/temp/
