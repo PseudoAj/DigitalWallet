@@ -98,6 +98,7 @@ Several optimizations have been made:
 ![images/test.gif](images/tests.gif)
 
 Following are the various test cases written:
+
 1. **test-1-paymo-trans:** Basic test provided
 1. **test-2-unknown-transactions:** Test case for unknown transactions to be identified by optimization rule
 1. **test-3-feature2:** test for degree 2 check
