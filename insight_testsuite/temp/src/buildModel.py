@@ -131,11 +131,12 @@ class buildModel():
         # Debug
         # print "Bad transactions: "+str(self.badTrns)
         # print len(self.nodesDict)
+        # print self.nodesDict
         # print len(self.treeDict)
         # print self.nxGraph.number_of_nodes()
 
         # Return values: dict and trees
-        return self.nodesDict,self.treeDict
+        return self.nodesDict,self.treeDict, self.nxGraph
 
 # Main method to trigger the class
 if __name__=="__main__":

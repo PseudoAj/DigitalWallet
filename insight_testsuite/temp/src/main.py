@@ -11,6 +11,8 @@
 import time
 import sys
 from buildModel import *
+import networkx as nx
+import matplotlib.pyplot as plt
 
 # ==============================================================================
 
@@ -46,11 +48,21 @@ class main():
         thisModel = buildModel(btchPymntsPath)
 
         # Call the build operation
-        self.nodesDict,self.treeDict = thisModel.build()
+        self.nodesDict,self.treeDict, self.nxGraph = thisModel.build()
 
         # ===== Debug =====
         # Debug Statement
         print "==== Checking stream ====="
+
+    # Get the degree from the nx graph instead
+    def getDgre(self,graph,start, goal):
+        # Try to find the node path length
+        try:
+            curDgre = nx.shortest_path_length(graph,source=start,target=goal)
+            return curDgre, True
+        # Catch exception
+        except nx.NetworkXNoPath, nx.NetworkXError:
+            return 0, False
 
     # Check for the neighbors using a BFS search
     def bfsPths(self, graph, start, goal):
@@ -137,6 +149,7 @@ class main():
                 curSndr = int(tkns[1].strip())
                 curRcvr = int(tkns[2].strip())
 
+                # Ignore any looped transactions
                 if curSndr == curRcvr:
                     continue
 
@@ -158,7 +171,11 @@ class main():
                         curOt3 = "trusted"
                     # Run for the next iterations
                     else:
-                        curDegree, pthExsts = self.shrtstPth(self.treeDict,curSndr,curRcvr)
+                        # Call nx graph
+                        curDegree, pthExsts = self.getDgre(self.nxGraph,curSndr,curRcvr)
+
+                        # My custom implementation
+                        # curDegree, pthExsts = self.shrtstPth(self.treeDict,curSndr,curRcvr)
                         # Check if the pthExsts
                         if pthExsts:
                             # Check if the degree is 2
@@ -178,8 +195,15 @@ class main():
 
                 # Debug
                 # print self.treeDict
+                # print curOt1+", "+curOt2+", "+curOt3
                 # print "Current transaction: "+str(trnsctn)+" Sender: "+str(curSndr)+" Reciever: "+str(curRcvr)
                 # raw_input()
+
+        # Debug
+        # print curOt1+", "+curOt2+", "+curOt3
+        # nx.draw(self.nxGraph)
+        # plt.show()
+
 
 
 # Main function for triggering the methods
@@ -197,8 +221,8 @@ if __name__ == "__main__":
         # btchPymnt = "../paymo_input/test_batch.txt"
 
         # Variable for the stream path
-        # strmPymnt = "../paymo_input/stream_payment.txt"
-        strmPymnt = "../paymo_input/stream_oneSec.txt"
+        strmPymnt = "../paymo_input/stream_payment.txt"
+        # strmPymnt = "../paymo_input/stream_oneSec.txt"
         # strmPymnt = "../paymo_input/test_stream.txt"
 
         # Output file path
