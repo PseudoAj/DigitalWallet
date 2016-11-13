@@ -105,7 +105,7 @@ Following are the various test cases written:
 1. **test-4-feature3:** extended check for degree 4
 
 ## Performance
-1. Build step: This typically takes about 17.308 s. Measured as user time and averaged over five runs.
+1. Build step: This typically takes about 17.308 s. Measured as execution time and averaged over five runs.
 1. Streaming: For one second of streaming data (915 transactions) are processed within 0.0649 s. Measured as execution time over five runs.
 
 Remarks: Additionally, the build model can be cached for the user network locally.
