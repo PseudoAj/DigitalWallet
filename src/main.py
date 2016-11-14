@@ -232,8 +232,5 @@ if __name__ == "__main__":
     # Call for the class
     thisRun = main(btchPymnt,strmPymnt,f1Out,f2Out,f3Out)
 
-    for i in xrange(5):
-        stTime = time.time()
-        # Run the stream
-        thisRun.strmTrns()
-        print time.time()-stTime
+    # Run the stream
+    thisRun.strmTrns()
